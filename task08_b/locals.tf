@@ -15,7 +15,7 @@ locals {
   aci_name = format("%s-ci", var.name_prefix)
 
   # ACA
-  aca_name = format("%s-aca", var.name_prefix)
+  aca_name     = format("%s-aca", var.name_prefix)
   aca_env_name = format("%s-cae", var.name_prefix)
 
   # AKS
