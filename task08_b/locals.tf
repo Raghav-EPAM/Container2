@@ -35,7 +35,7 @@ locals {
   common_tags = {
     Creator = "raghav_jaiswal@epam.com"
   }
-  container_name     = "raghav-conatiner-acr"
+  container_name     = "app-content"
   dns_prefix         = "${var.name_prefix}-k8s"
   aks_node_pool_name = "system"
 }
