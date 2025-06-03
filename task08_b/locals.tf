@@ -6,7 +6,7 @@ locals {
   acr_name = lower(replace(format("%scr", var.name_prefix), "-", ""))
 
   # Storage Account Name (lowercase, no dashes per naming rules)
-  storage_account_name = lower(replace(format("%ssa", var.name_prefix), "-", ""))
+  sa_name = lower(replace(format("%ssa", var.name_prefix), "-", ""))
 
   # App Image Name
   app_image_name = format("%s-app", var.name_prefix)
@@ -16,13 +16,13 @@ locals {
 
   # ACA
   aca_name = format("%s-aca", var.name_prefix)
-  env_name = format("%s-cae", var.name_prefix)
+  aca_env_name = format("%s-cae", var.name_prefix)
 
   # AKS
   aks_name = format("%s-aks", var.name_prefix)
 
   # Redis
-  redis_name = format("%s-redis", var.name_prefix)
+  redis_aci_name = format("%s-redis-ci", var.name_prefix)
 
   # Key Vault
   keyvault_name = format("%s-kv", var.name_prefix)

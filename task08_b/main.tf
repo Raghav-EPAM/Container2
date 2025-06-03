@@ -13,7 +13,7 @@ resource "azurerm_resource_group" "resource_group" {
 module "storage" {
   source = "./modules/storage"
 
-  storage_account_name = local.storage_account_name
+  storage_account_name = local.sa_name
   location             = azurerm_resource_group.resource_group.location
   resource_group_name  = azurerm_resource_group.resource_group.name
   tags                 = local.common_tags
@@ -66,7 +66,7 @@ module "keyvault" {
 module "aci_redis" {
   source = "./modules/aci_redis"
 
-  aci_name            = local.aci_name
+  aci_name            = local.redis_aci_name
   location            = azurerm_resource_group.resource_group.location
   resource_group_name = azurerm_resource_group.resource_group.name
   tags                = local.common_tags
@@ -102,7 +102,7 @@ module "aca" {
   container_image             = "${module.acr.login_server}/${local.app_image_name}:latest"
 
   revision_mode = var.revision_mode
-  env_name      = local.env_name
+  env_name      = local.aca_env_name
   acr_server    = module.acr.login_server
 
   depends_on = [module.aci_redis]
